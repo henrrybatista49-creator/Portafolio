@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Portafolio | Henrry Batista · Ciberseguridad</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: dark;
+  --sky:#6ab7ff; --grass:#5cb338; --grass-d:#3f8a25; --dirt:#8b5a2b; --dirt-d:#5e3b1a;
+  --stone:#7d7d7d; --stone-d:#4a4a4a; --night:#14161f; --panel:#1f2330; --text:#f1f1f1;
+  --gold:#ffd23f; --diamond:#4fe3e0; --red:#ff5a5a;
+  --px:"Press Start 2P",ui-monospace,monospace; --vt:"VT323",ui-monospace,monospace;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--night);color:var(--text);font-family:var(--vt);font-size:22px;line-height:1.35;
+  background-image:linear-gradient(45deg,#181b26 25%,transparent 25%,transparent 75%,#181b26 75%),linear-gradient(45deg,#181b26 25%,transparent 25%,transparent 75%,#181b26 75%);
+  background-size:40px 40px;background-position:0 0,20px 20px}
+h1,h2,h3{font-family:var(--px);font-weight:400;line-height:1.5;margin:0}
+a{color:var(--diamond)}
+nav{position:sticky;top:0;z-index:20;display:flex;gap:6px;justify-content:center;flex-wrap:wrap;padding:10px;background:#0c0e14;border-bottom:4px solid var(--stone-d)}
+nav a{font-family:var(--px);font-size:10px;color:var(--text);text-decoration:none;padding:8px 10px;background:var(--stone-d);border:3px solid;border-color:#9a9a9a #2b2b2b #2b2b2b #9a9a9a}
+nav a:hover{background:var(--grass-d)}
+.hero{position:relative;text-align:center;padding:70px 16px 120px;background:linear-gradient(var(--sky),#b9e1ff 70%);color:#10202e;overflow:hidden}
+.sun{position:absolute;top:24px;right:8%;width:60px;height:60px;background:#fff6a8;box-shadow:0 0 0 6px #ffe86a}
+.cloud{position:absolute;height:22px;background:#fff;box-shadow:22px -16px 0 #fff,44px 0 0 #fff;opacity:.9;animation:drift 40s linear infinite}
+.c1{top:50px;left:-80px;width:44px}.c2{top:120px;left:-200px;width:44px;animation-duration:60s}
+@keyframes drift{to{transform:translateX(120vw)}}
+.hero h1{font-size:clamp(20px,5vw,40px);color:#fff;text-shadow:4px 4px 0 #1b3a5a;position:relative}
+.hero p{font-size:28px;margin:18px auto 0;max-width:640px;position:relative}
+.avatar{width:128px;height:128px;margin:0 auto 22px;image-rendering:pixelated;position:relative;border:6px solid #1b3a5a;background:#1b3a5a}
+.ground{position:absolute;left:0;right:0;bottom:0;height:70px;background:var(--grass);border-top:10px solid #7ed957;
+  background-image:linear-gradient(var(--grass) 0 18px,var(--dirt) 18px);}
+.ground::after{content:"";position:absolute;inset:18px 0 0;background-image:linear-gradient(90deg,var(--dirt-d) 4px,transparent 4px),linear-gradient(var(--dirt-d) 4px,transparent 4px);background-size:32px 32px;opacity:.35}
+.btn{display:inline-block;margin-top:24px;font-family:var(--px);font-size:12px;color:#fff;text-decoration:none;padding:14px 18px;background:var(--grass-d);border:4px solid;border-color:#8fe06a #26591a #26591a #8fe06a;position:relative}
+.btn:hover{background:var(--grass)}
+section{max-width:960px;margin:0 auto;padding:56px 16px 8px}
+h2{font-size:clamp(14px,3vw,20px);color:var(--gold);text-shadow:3px 3px 0 #000;margin-bottom:22px}
+h2::before{content:"▣ ";color:var(--grass)}
+.panel{background:var(--panel);border:4px solid;border-color:#5a6074 #0d0f15 #0d0f15 #5a6074;padding:18px}
+.xp{height:22px;background:#0d0f15;border:3px solid #5a6074;margin-top:6px}
+.xp i{display:block;height:100%;background:linear-gradient(90deg,#7ed957,#3f8a25);width:0;transition:width 1.4s steps(14)}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.stat{margin-bottom:14px}
+.slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px}
+.slot{aspect-ratio:1;background:#8b8b8b;border:4px solid;border-color:#373737 #fff #fff #373737;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-size:18px;color:#222;padding:4px;cursor:default;transition:transform .15s steps(2)}
+.slot:hover{transform:translateY(-4px);background:#a8a8a8}
+.slot b{font-size:30px;line-height:1}
+.quest{display:flex;flex-direction:column;gap:10px;transition:transform .15s steps(2)}
+.quest:hover{transform:translate(-3px,-3px)}
+.quest h3{font-size:12px;color:var(--diamond)}
+.tag{display:inline-block;font-size:17px;padding:0 8px;background:var(--stone-d);border:2px solid #9a9a9a;margin:2px 4px 0 0}
+.badge{font-family:var(--px);font-size:9px;color:#000;background:var(--gold);padding:4px 6px;align-self:flex-start}
+.timeline{border-left:6px solid var(--grass-d);padding-left:18px;display:grid;gap:16px}
+.timeline h3{font-size:11px;color:var(--gold)}
+form{display:grid;gap:12px}
+.links{display:flex;flex-wrap:wrap;gap:12px}
+footer{text-align:center;margin-top:60px;padding:34px 16px;background:var(--dirt);border-top:10px solid var(--grass);font-size:20px}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,200%);background:#2b1a40;border:4px solid #a56bff;font-family:var(--px);font-size:10px;padding:12px 14px;transition:transform .4s;z-index:30;text-align:center}
+.toast.show{transform:translate(-50%,0)}
+@media (max-width:520px){body{font-size:20px}.sun{display:none}}
+@media (prefers-reduced-motion:reduce){.cloud{animation:none}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="#inicio">INICIO</a><a href="#sobre-mi">SOBRE MÍ</a><a href="#habilidades">SKILLS</a><a href="#proyectos">PROYECTOS</a><a href="#contacto">CONTACTO</a>
+</nav>
+
+<header class="hero" id="inicio">
+  <div class="sun"></div><div class="cloud c1"></div><div class="cloud c2"></div>
+  <canvas class="avatar" id="avatar" width="8" height="8" title="Tu skin"></canvas>
+  <h1 id="nombre">HENRRY BATISTA</h1>
+  <p id="rol">Técnico en Ciberseguridad · Pentesting · Cloud · Jugador de CTF</p>
+  <a class="btn" href="#proyectos">▶ INICIAR AVENTURA</a>
+  <div class="ground"></div>
+</header>
+
+<section id="sobre-mi">
+  <h2>Sobre mí</h2>
+  <div class="grid">
+    <div class="panel">
+      <p id="bio">Técnico Especializado en Ciberseguridad egresado del ITSE. Como en Minecraft, protejo mi base bloque por bloque: soporte técnico, redes, pruebas básicas de pentesting y análisis de logs. Fui practicante de Analista Junior de Ciberseguridad en Solutions Group, S.A. y busco una oportunidad para proteger activos digitales.</p>
+      <p>📍 Pacora, Panamá &nbsp; 🗣 Español nativo · Inglés básico<br>🎯 Objetivo: <span style="color:var(--gold)">proteger activos digitales</span></p>
+    </div>
+    <div class="panel">
+      <div class="stat">🛡 Pensamiento analítico<div class="xp"><i data-w="95"></i></div></div>
+      <div class="stat">⚔ Resolución bajo presión<div class="xp"><i data-w="90"></i></div></div>
+      <div class="stat">🤝 Trabajo en equipo<div class="xp"><i data-w="88"></i></div></div>
+      <div class="stat">✨ Aprendizaje continuo<div class="xp"><i data-w="100"></i></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="habilidades">
+  <h2>Inventario de habilidades</h2>
+  <div class="panel"><div class="slots" id="slots"></div></div>
+</section>
+
+<section id="proyectos">
+  <h2>Misiones completadas</h2>
+  <div class="grid" id="quests"></div>
+</section>
+
+<section id="trayectoria">
+  <h2>Mapa de mi trayectoria</h2>
+  <div class="timeline">
+    <div><h3>2026 · Nivel actual</h3><div>Egreso como Técnico en Ciberseguridad (ITSE), práctica en Solutions Group y certificación Fortinet.</div></div>
+    <div><h3>2024 · Nueva dimensión</h3><div>Inicio mi formación en Ciberseguridad en el Instituto Técnico Superior Especializado (ITSE).</div></div>
+    <div><h3>2021–2023 · Spawn</h3><div>Técnico en Electrónica Industrial (C.F.I.B. Padre Fernando Guardia Jaén) y técnico de soporte en +Móvil Panamá.</div></div>
+  </div>
+</section>
+
+<section id="contacto">
+  <h2>Contáctame</h2>
+  <div class="panel">
+    <p>¿Buscas a alguien que cuide tu servidor? Escríbeme. 📍 Pacora, Panamá · 📞 +507 6632-8781</p>
+    <div class="links">
+      <a class="btn" href="mailto:henrrybatista59@gmail.com">✉ CORREO</a>
+      <a class="btn" href="https://wa.me/50766328781">💬 WHATSAPP</a>
+    </div>
+  </div>
+</section>
+
+<footer>Hecho con bloques, café y mucha creatividad · <span id="year"></span></footer>
+<div class="toast" id="toast">🏆 LOGRO DESBLOQUEADO: ¡Llegaste al final!</div>
+
+<script>
+const skills=[["🔎","Nmap"],["🦈","Wireshark"],["🧪","Pentesting"],["📜","Análisis de logs"],["☁️","AWS · IAM"],["🐧","Linux · Windows"],["🌐","Redes · Wi-Fi"],["🚩","CTF"],["🎫","Tickets"],["🔧","Hardware"]];
+const quests=[
+ {t:"Analista Junior · Solutions Group",d:"Practicante (jul–oct 2026): gestioné tickets de la mesa de ayuda, hice pruebas básicas de pentesting, analicé logs de incidentes y elaboré manuales de procesos.",tags:["Pentesting","Logs","Tickets"],b:"ÉPICO"},
+ {t:"Retos CTF · Capture The Flag",d:"Hacking ético en plataformas de retos: criptografía, esteganografía y seguridad web, buscando flags con agilidad mental bajo presión.",tags:["Cripto","Estego","Web"],b:"ÉPICO"},
+ {t:"Fortinet · Cybersecurity and Cloud Fundamentals 1.0",d:"Certificación (oct 2026): modelos de nube IaaS, SaaS y PaaS, virtualización, control de acceso y SSO, y estrategias de ciberseguridad y redes.",tags:["Fortinet","Cloud","SSO"],b:"RARO"}
+];
+document.getElementById("slots").innerHTML=skills.map(s=>`<div class="slot"><b>${s[0]}</b>${s[1]}</div>`).join("");
+document.getElementById("quests").innerHTML=quests.map(q=>`<div class="panel quest"><span class="badge">${q.b}</span><h3>${q.t}</h3><div>${q.d}</div><div>${q.tags.map(x=>`<span class="tag">${x}</span>`).join("")}</div></div>`).join("");
+document.getElementById("year").textContent=new Date().getFullYear();
+// avatar pixel-art estilo skin
+const c=document.getElementById("avatar").getContext("2d");
+const map=["33333333","32222223","21111112","11411411","11111111","11555511","11511511","11111111"];
+const col={"1":"#c68e6a","2":"#3b2412","3":"#2a1809","4":"#4fe3e0","5":"#7a3f2a"};
+map.forEach((r,y)=>[...r].forEach((k,x)=>{c.fillStyle=col[k];c.fillRect(x,y,1,1)}));
+// barras de XP al hacer scroll
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.style.width=e.target.dataset.w+"%"}}),{threshold:.4});
+document.querySelectorAll(".xp i").forEach(i=>io.observe(i));
+// logro al llegar al final
+let shown=false;
+addEventListener("scroll",()=>{if(!shown&&innerHeight+scrollY>=document.body.scrollHeight-40){shown=true;const t=document.getElementById("toast");t.classList.add("show");setTimeout(()=>t.classList.remove("show"),3500)}});
+</script>
+</body>
+</html>
